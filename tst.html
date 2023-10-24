@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tst.css">
+   
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                transition: background-color 0.5s; /* Add smooth background color transition */
+            }
+    
+            #counter {
+                font-size: 24px;
+                margin: 20px;
+            }
+    
+            button {
+                padding: 10px 20px;
+                font-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Counter</h1>
+        <div id="counter" style="color: darkblue;">0</div>
+        <button id="increment">Increment</button>
+        <button id="decrement">Decrement</button>
+       <br/>
+       <label for="multiplier">Multiplier: </label>
+       <input type="number" id="multiplier" value="1">
+       <button id="multiply">Multiply</button>
+        <div id="show"></div>
+        
+    
+        <script>
+            const body = document.body; // Get the body element
+            const counterElement = document.getElementById("counter");
+            const incrementButton = document.getElementById("increment");
+            const decrementButton = document.getElementById("decrement");
+            const multiplierInput = document.getElementById("multiplier");
+        const multiplyButton = document.getElementById("multiply");
+        const show = document.getElementById("show");
+
+
+            console.log(incrementButton)
+            let count = 0;
+    
+            incrementButton.addEventListener("click", () => {
+                count++;
+                console.log('count')
+                updateCounterColor();
+                counterElement.textContent = count;
+            });
+    
+            decrementButton.addEventListener("click", () => {
+                if (count > 0) {
+                    count--;
+                    updateCounterColor();
+                    counterElement.textContent = count;
+                }
+            //    < br/>
+               
+            })
+            
+            multiplyButton.addEventListener("click", () => {
+            const multiplier = parseInt(multiplierInput.value);
+            if (!isNaN(multiplier) && multiplier >= 0) {
+                count *= multiplier;
+                show.textContent = count;
+            } else {
+                alert("Please enter a non-negative number as the multiplier.");
+            }
+        });
+    
+            function updateCounterColor() {
+                if (count % 3 === 0 && count % 5 === 0) {
+                    counterElement.style.color = "orange";
+                    body.style.backgroundColor = "orange"; // Change background color
+                } else if (count % 3 === 0) {
+                    counterElement.style.color = "red";
+                    body.style.backgroundColor = "lightcoral"; // Change background color
+                } else if (count % 5 === 0) {
+                    counterElement.style.color = "blue";
+                    body.style.backgroundColor = "lightblue"; // Change background color
+                } else {
+                    counterElement.style.color = "darkblue";
+                    body.style.backgroundColor = "white"; // Change background color
+                }
+            }
+        </script>
+    </body>
+    </html>
+    
+        </html>
+        
